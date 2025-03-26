@@ -1,0 +1,31 @@
+#header{
+    height:155px;
+    background-color: aqua;
+    text-align: center;
+    text-transform: uppercase;
+    float:right;
+    width: 100%;
+}
+
+ol li{
+    display:inline;
+    padding:7%;
+}
+ol li a{
+    color:white;
+}
+ol li a:hover{
+    background-color:grey;
+    padding: 5px;
+    border-style:double;
+    border-color: 35px;
+}
+.row2{
+    background-color: black;
+    width:100%;
+    float:right;}
+.col1{
+    float:left;
+}
+
+
