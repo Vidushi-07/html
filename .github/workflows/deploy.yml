@@ -1,0 +1,36 @@
+name: Generate and Deploy HTML
+
+on:
+  push:
+    branches:
+      - main  # Runs whenever changes are pushed to 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Generate HTML File
+        run: |
+          mkdir public
+          echo "<!DOCTYPE html>
+          <html lang='en'>
+          <head>
+              <meta charset='UTF-8'>
+              <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+              <title>Auto-Generated Page</title>
+          </head>
+          <body>
+              <h1>Welcome to My Auto-Generated Page!</h1>
+              <p>This page was created dynamically using GitHub Actions.</p>
+          </body>
+          </html>" > public/index.html
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # Deploy to GitHub Pages branch
+          folder: public    # Deploy the 'public' folder
